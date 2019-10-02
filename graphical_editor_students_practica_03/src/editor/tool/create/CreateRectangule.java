@@ -1,16 +1,19 @@
 package editor.tool.create;
 
-import editor.Drawing;
+import editor.Editor;
 import figures.Rectangle;
 
-public class CreateSquare extends AbstractCreate {
+public class CreateRectangule extends AbstractCreateDrag {
 
-	public CreateSquare(Drawing drawing) {
-		super(drawing);
+	public CreateRectangule(Editor editor) {
+		super(editor);
+		System.out.println("Seleccionada herramienta de creación de"
+				+ " rectángulos");
 	}
 
 	@Override
 	public void drop() {
-		drawing.add(new Rectangle(a, b.getX(), b.getY()));
+		editor.getDrawing().add(new Rectangle(a, b.getX(), b.getY()));
+		System.out.println("Creado nuevo rectángulo");
 	}
 }

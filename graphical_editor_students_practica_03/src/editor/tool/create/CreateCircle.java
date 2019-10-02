@@ -1,15 +1,17 @@
 package editor.tool.create;
 
-import editor.Drawing;
+import editor.Editor;
 import figures.Circle;
 
-public class CreateCircle extends AbstractCreate {
-	public CreateCircle(Drawing drawing) {
-		super(drawing);
+public class CreateCircle extends AbstractCreateDrag {
+	public CreateCircle(Editor editor) {
+		super(editor);
+		System.out.println("Seleccionada herramienta de creación de circulos");
 	}
 
 	@Override
 	public void drop() {
-		drawing.add(new Circle(a, b));
+		editor.getDrawing().add(new Circle(a, b));
+		System.out.println("Creado nuevo circulo");
 	}
 }
