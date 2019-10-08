@@ -26,7 +26,7 @@ public class Rectangle implements Figure {
 
 	@Override
 	public void move(int x, int y) {
-		corner.translate(x, x);
+		corner.translate(x, y);
 	}
 
 	@Override

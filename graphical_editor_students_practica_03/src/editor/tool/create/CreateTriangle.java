@@ -15,27 +15,25 @@ public class CreateTriangle extends AbstractTool {
 	public CreateTriangle(Editor editor) {
 		super(editor);
 		this.points = new ArrayList<Point>();
-		System.out.println("Seleccionada herramienta de creación de "
-				+ "triángulos");
+		System.out.println(
+				"Seleccionada herramienta de creación de " + "triángulos");
 	}
 
 	@Override
 	public void pulse(int x, int y) {
-		Point point = new Point(x, y);
+		this.points.add(new Point(x, y));
 		if (points.size() == 3) {
 			Figure figure = new Triangle(points.get(0), points.get(1),
 					points.get(2));
 			this.editor.getDrawing().add(figure);
 			this.points = new ArrayList<Point>();
 			System.out.println("Creado nuevo triángulo");
-		} else {
-			this.points.add(point);
 		}
 	}
 
 	@Override
 	public void move(int x, int y) {
-		System.out.println("No necesito moverme");
+		System.out.println("No necesito moverme, acebal cabron");
 	}
 
 	@Override

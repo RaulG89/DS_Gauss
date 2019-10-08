@@ -15,7 +15,8 @@ public class Triangle implements Figure {
 
 	@Override
 	public void draw() {
-		toString();
+		System.out.println(toString());
+		//putos haters
 	}
 
 	@Override

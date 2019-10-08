@@ -28,6 +28,7 @@ public class SelectionTool extends AbstractTool {
 	@Override
 	public void move(int x, int y) {
 		this.finish = new Point(x, y);
+		System.out.println("Cursor movido: " + x + ", " + y);
 	}
 
 	@Override
@@ -38,6 +39,7 @@ public class SelectionTool extends AbstractTool {
 			int x = this.finish.x - this.init.x;
 			int y = this.finish.y - this.init.y;
 			this.selected.move(x, y);
+			System.out.println("Figura : " + this.selected);
 		}
 	}
 

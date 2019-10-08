@@ -1,0 +1,12 @@
+"C�digo de Producto". Longitud = 4
+
+"C�digo Postal". Digitos y longitud = 5
+
+"Edad". Digitos y mayor 18
+
+"Sueldo". Digitos y mayor que 800 y menor que 1200
+
+"Ubicación". Santander..C�diz o c�digo postal
+
+"C�digo de Promoción". Texto o (numero de 3 digitos)
+

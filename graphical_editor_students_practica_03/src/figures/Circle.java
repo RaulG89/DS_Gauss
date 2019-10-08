@@ -14,7 +14,7 @@ public class Circle implements Figure {
 
 	@Override
 	public void draw() {
-		toString();
+		System.out.println(toString());
 	}
 
 	@Override
