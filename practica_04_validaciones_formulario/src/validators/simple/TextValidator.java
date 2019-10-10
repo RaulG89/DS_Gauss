@@ -1,6 +1,8 @@
-package validators;
+package validators.simple;
 
-public class ValidatorText implements Validator {
+import validators.Validator;
+
+public class TextValidator implements Validator {
 
 	@Override
 	public boolean isValid(String value) {

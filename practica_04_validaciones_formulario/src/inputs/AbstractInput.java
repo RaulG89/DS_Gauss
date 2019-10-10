@@ -1,10 +1,11 @@
+package inputs;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import validators.Validator;
 
-public abstract class AbstractInput implements Campo {
+public abstract class AbstractInput implements Input {
 	private String etiqueta;
 	protected String texto;
 	protected Validator validator;

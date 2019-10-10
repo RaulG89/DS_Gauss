@@ -1,5 +1,6 @@
+package inputs;
 
-public interface Campo {
+public interface Input {
 	public void pideDato();
 	public String getDato();
 }
