@@ -1,10 +1,12 @@
-import validators.ValidatorText;
+package inputs.generic;
+import inputs.AbstractInput;
+import validators.simple.TextValidator;
 
-public class CampoTexto extends AbstractInput {
+public class TextInput extends AbstractInput {
 
-	public CampoTexto(String etiqueta) {
+	public TextInput(String etiqueta) {
 		super(etiqueta);
-		this.validator = new ValidatorText();
+		this.validator = new TextValidator();
 	}
 
 }

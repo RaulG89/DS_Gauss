@@ -1,10 +1,12 @@
-import validators.ValidatorPredefined;
+package inputs.generic;
+import inputs.AbstractInput;
+import validators.simple.PredefinedValidator;
 
-public class CampoPredefinido extends AbstractInput {
+public class PredefinedInput extends AbstractInput {
 
-	public CampoPredefinido(String etiqueta, String... valores) {
+	public PredefinedInput(String etiqueta, String... valores) {
 		super(etiqueta);
-		this.validator = new ValidatorPredefined(valores);
+		this.validator = new PredefinedValidator(valores);
 	}
 
 }
