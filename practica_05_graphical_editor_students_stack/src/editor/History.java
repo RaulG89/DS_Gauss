@@ -29,7 +29,6 @@ public class History {
 	public void undo() {
 		if (undos.isEmpty()) {
 			System.out.println("No hay cambios registrados para desahacer");
-
 		} else {
 			Change change = undos.pop();
 			change.undo();
@@ -40,7 +39,6 @@ public class History {
 	public void redo() {
 		if (redos.isEmpty()) {
 			System.out.println("No hay cambios registrados para rehacer");
-			return;
 		} else {
 			Change change = redos.pop();
 			change.redo();

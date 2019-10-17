@@ -8,7 +8,6 @@ public class CreationChange implements Change {
 	private Drawing drawing;
 
 	public CreationChange(Figure figure, Drawing drawing) {
-		super();
 		this.figure = figure;
 		this.drawing = drawing;
 	}
