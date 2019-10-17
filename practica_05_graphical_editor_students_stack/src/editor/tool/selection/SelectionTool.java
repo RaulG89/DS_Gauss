@@ -10,7 +10,7 @@ public class SelectionTool extends AbstractTool {
 
 	private Point init;
 	private Point finish;
-	private Figure selected;
+	private Figure figure;
 
 	public SelectionTool(Editor editor) {
 		super(editor);
@@ -21,8 +21,8 @@ public class SelectionTool extends AbstractTool {
 	public void pulse(int x, int y) {
 		this.init = new Point(x, y);
 		System.out.println("Posición del cursor: " + x + ", " + y);
-		this.selected = this.editor.getDrawing().getSelected(x, y);
-		System.out.println("Figura seleccionada: " + this.selected);
+		this.figure = this.editor.getDrawing().getSelected(x, y);
+		System.out.println("Figura seleccionada: " + this.figure);
 	}
 
 	@Override
@@ -33,13 +33,14 @@ public class SelectionTool extends AbstractTool {
 
 	@Override
 	public void drop() {
-		if (selected == null) {
+		if (figure == null) {
 			System.out.println("No hay ninguna figura seleccionada");
 		} else {
 			int x = this.finish.x - this.init.x;
 			int y = this.finish.y - this.init.y;
-			this.selected.move(x, y);
-			System.out.println("Figura : " + this.selected);
+			this.figure.move(x, y);
+			System.out.println("Figura : " + this.figure);
+			saveChange(figure, x, y);
 		}
 	}
 

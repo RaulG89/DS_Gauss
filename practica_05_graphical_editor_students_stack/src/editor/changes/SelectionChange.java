@@ -17,11 +17,13 @@ public class SelectionChange implements Change {
 	@Override
 	public void undo() {
 		figure.move(-x, -y);
+		System.out.println("Mueve la figura " + figure + " a " + -x + ", "+ -y);
 	}
 
 	@Override
 	public void redo() {
 		figure.move(x, y);
+		System.out.println("Mueve la figura " + figure + " a " + x + ", "+ y);
 	}
 
 }
