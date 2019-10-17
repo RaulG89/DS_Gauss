@@ -17,6 +17,7 @@ public class Main {
 	private static PoliticGroup psoe;
 	private static PoliticGroup podemos;
 	private static PoliticGroup masPais;
+	private static PoliticGroup esquerraRepublicana;
 	private static List<PoliticGroup> politicGroups;
 	private static List<Vote> votes;
 
@@ -34,6 +35,8 @@ public class Main {
 		politicGroups.add(podemos);
 		masPais = new PoliticGroup("MasPais");
 		politicGroups.add(masPais);
+		esquerraRepublicana = new PoliticGroup("Esquerra Republicana");
+		politicGroups.add(esquerraRepublicana);
 
 		votes = new ArrayList<>();
 		int numVotes = 40;
@@ -47,7 +50,7 @@ public class Main {
 		for (int i = 0; i < numVotes; i++) {
 			PoliticGroup politicGroup = votes.get(i).getPoliticGroup();
 			politicGroup.setNumVotes(politicGroup.getNumVotes() + 1);
-			System.out.println("Escrutiño actual:");
+			System.out.println("Escrutinio actual:");
 			System.out.println("Número de votos revisados: " + (i + 1));
 			for (PoliticGroup group : politicGroups) {
 				System.out.println(group);

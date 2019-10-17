@@ -1,0 +1,20 @@
+Ampliacion 1: dos nuevas paginas
+	miCuenta: muestra la informacion de la cuenta del usuario.
+	ofertas: muestra los productos en oferta.
+	
+Ampliacion 2:
+	Medir cuentas veces entran los usuarios a la pagina.
+	Contar tiempo de espera.
+	Pagina de inicio ambas.
+	Pagina de pedidos ninguna.
+	
+Ampliacion 3:
+	Todas la paginas vuelven a su version original.
+	Si usuario no valido, nueva pagina con error 401, sino pagina habitual.
+	Ofertas solo en fin de semana.
+	
+Ampliacion 4:
+	Contar tiempo de espera total (validar y enviar pagina) y solo enviar
+	en la pagina de pedidos.
+	Monitorizar peticiones a miCuenta, accesos validos y no validos.
+	

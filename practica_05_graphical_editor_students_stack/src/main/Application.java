@@ -1,4 +1,5 @@
 package main;
+
 import java.io.*;
 
 import editor.*;
@@ -108,7 +109,7 @@ public class Application {
 			} catch (NumberFormatException e) {
 				output.println(
 						"Error de sintaxis: se esperaban las coordenadas del"
-						+ " punto adonde se movió el cursor: mover <x>, <y>");
+								+ " punto adonde se movió el cursor: mover <x>, <y>");
 			}
 		} else if (action.equals("soltar")) {
 			editor.getTool().drop();
@@ -116,6 +117,10 @@ public class Application {
 			editor.drawDocument();
 		} else if (action.equals("ayuda")) {
 			showHelp();
+		} else if (action.equals("deshacer")) {
+			editor.undo();
+		} else if (action.equals("rehacer")) {
+			editor.redo();
 		} else {
 			output.println("Acción desconocida");
 			showHelp();

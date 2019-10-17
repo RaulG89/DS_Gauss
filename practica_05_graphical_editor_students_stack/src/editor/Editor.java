@@ -29,6 +29,12 @@ public class Editor {
 	public void setTool(Tool tool) {
 		this.tool = tool;
 	}
-	
-	
+
+	public void redo() {
+		History.getInstance().redo();
+	}
+
+	public void undo() {
+		History.getInstance().undo();
+	}
 }
