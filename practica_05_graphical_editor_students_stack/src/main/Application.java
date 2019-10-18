@@ -37,6 +37,7 @@ public class Application {
 				"Herramientas: seleccion - rectangulo - circulo - triangulo");
 		output.println(
 				"Acciones del ratón: pulsar <x>,<y> - mover <x>,<y> - soltar");
+		output.println("Pila: deshacer - rehacer");
 		output.println("Otras acciones: dibujar - ayuda - salir");
 		output.println(
 				"-----------------------------------------------------------");
