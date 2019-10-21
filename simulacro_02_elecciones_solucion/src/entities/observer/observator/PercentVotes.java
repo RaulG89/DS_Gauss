@@ -5,12 +5,13 @@ import java.util.List;
 import entities.PoliticGroup;
 import entities.observer.Voting;
 
-public class PercentVotes extends AbstractObservator {
+public class PercentVotes implements Observator {
 
 	private List<PoliticGroup> politicGroups;
+	private Voting voting;
 
 	public PercentVotes(Voting voting, List<PoliticGroup> politicGroups) {
-		super(voting);
+		this.voting = voting;
 		this.politicGroups = politicGroups;
 	}
 

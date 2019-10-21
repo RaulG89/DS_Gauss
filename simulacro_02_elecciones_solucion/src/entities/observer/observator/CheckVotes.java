@@ -3,14 +3,12 @@ package entities.observer.observator;
 import java.util.List;
 
 import entities.PoliticGroup;
-import entities.observer.Voting;
 
-public class CheckVotes extends AbstractObservator {
+public class CheckVotes implements Observator {
 
 	private List<PoliticGroup> politicGroups;
 
-	public CheckVotes(Voting voting, List<PoliticGroup> politicGroups) {
-		super(voting);
+	public CheckVotes(List<PoliticGroup> politicGroups) {
 		this.politicGroups = politicGroups;
 	}
 

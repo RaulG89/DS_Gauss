@@ -4,10 +4,12 @@ import entities.PoliticGroup;
 import entities.Vote;
 import entities.observer.Voting;
 
-public class AddVote extends AbstractObservator {
+public class AddVote implements Observator {
+
+	private Voting voting;
 
 	public AddVote(Voting voting) {
-		super(voting);
+		this.voting = voting;
 	}
 
 	@Override

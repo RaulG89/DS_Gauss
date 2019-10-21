@@ -5,12 +5,13 @@ import java.util.List;
 import entities.Vote;
 import entities.observer.Voting;
 
-public class VotingStatus extends AbstractObservator {
+public class VotingStatus implements Observator {
 
 	private List<Vote> votes;
+	private Voting voting;
 
 	public VotingStatus(Voting voting, List<Vote> votes) {
-		super(voting);
+		this.voting = voting;
 		this.votes = votes;
 	}
 

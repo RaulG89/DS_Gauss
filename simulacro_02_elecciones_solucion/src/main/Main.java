@@ -22,7 +22,7 @@ import util.GenerateRandomVotes;
  *
  */
 public class Main {
-	private static int NUM_VOTES = 400;
+	private static int NUM_VOTES = 2000;
 
 	public static void main(String[] args) {
 		List<PoliticGroup> politicGroups = new GeneratePoliticGroup()
@@ -33,7 +33,7 @@ public class Main {
 		Voting voting = new Voting();
 		voting.add(new AddVote(voting));
 		voting.add(new VotingStatus(voting, votes));
-		voting.add(new CheckVotes(voting, politicGroups));
+		voting.add(new CheckVotes(politicGroups));
 		voting.add(new PercentVotes(voting, politicGroups));
 		voting.add(new GetWinner(politicGroups));
 
