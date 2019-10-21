@@ -22,11 +22,12 @@ import util.GenerateRandomVotes;
  *
  */
 public class Main {
+	private static int NUM_VOTES = 400;
 
 	public static void main(String[] args) {
 		List<PoliticGroup> politicGroups = new GeneratePoliticGroup()
 				.generate();
-		List<Vote> votes = new GenerateRandomVotes(politicGroups, 400)
+		List<Vote> votes = new GenerateRandomVotes(politicGroups, NUM_VOTES)
 				.generate();
 
 		Voting voting = new Voting();
