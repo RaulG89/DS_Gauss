@@ -27,7 +27,7 @@ public class MapPhoto implements MapElement {
 
 	@Override
 	public void open() {
-//		this.photo.show();
+		this.photo.show();
 	}
 
 }

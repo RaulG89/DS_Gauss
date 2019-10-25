@@ -19,7 +19,7 @@ public class FormMonument extends TemplateForm {
 	}
 
 	@Override
-	public void editValues() {
+	protected void editValues() {
 		setAuthor();
 		setAddress();
 	}
