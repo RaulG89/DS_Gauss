@@ -31,28 +31,28 @@ public class Main {
         server.startServer();
     }
 
-    private void runRedesigned() throws Exception {
-        System.out.println("Ejecutando el servidor tras el rediseño...");
-        // TODO ...
-    }
-
-    private void run1() throws Exception {
-        System.out.println("Ejecutando el servidor con la ampliación 1...");
-        // TODO ...
-    }
-
-    private void run2() throws Exception {
-        System.out.println("Ejecutando el servidor con la ampliación 2...");
-        // TODO ...
-    }
-
-    private void run3() throws Exception {
-        System.out.println("Ejecutando el servidor con la ampliación 3...");
-        // TODO ...
-    }
-
-    private void run4() throws Exception {
-        System.out.println("Ejecutando el servidor con la ampliación 4...");
-        // TODO ...
-    }
+//    private void runRedesigned() throws Exception {
+//        System.out.println("Ejecutando el servidor tras el rediseño...");
+//        // TODO ...
+//    }
+//
+//    private void run1() throws Exception {
+//        System.out.println("Ejecutando el servidor con la ampliación 1...");
+//        // TODO ...
+//    }
+//
+//    private void run2() throws Exception {
+//        System.out.println("Ejecutando el servidor con la ampliación 2...");
+//        // TODO ...
+//    }
+//
+//    private void run3() throws Exception {
+//        System.out.println("Ejecutando el servidor con la ampliación 3...");
+//        // TODO ...
+//    }
+//
+//    private void run4() throws Exception {
+//        System.out.println("Ejecutando el servidor con la ampliación 4...");
+//        // TODO ...
+//    }
 }
