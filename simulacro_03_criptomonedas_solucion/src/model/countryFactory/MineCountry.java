@@ -1,4 +1,4 @@
-package model;
+package model.countryFactory;
 
 public interface MineCountry {
 	double mineBitCoinPerDay();

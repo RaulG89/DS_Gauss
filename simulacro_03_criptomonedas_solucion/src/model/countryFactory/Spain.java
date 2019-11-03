@@ -1,4 +1,4 @@
-package model;
+package model.countryFactory;
 
 import model.cryptoMoney.Btc;
 import model.cryptoMoney.Eth;
@@ -12,21 +12,6 @@ public class Spain extends Country {
 		this.btcMine = new Mine(new Btc(), 20);
 		this.ethMine = new Mine(new Eth(), 2);
 		this.xmlMine = new Mine(new Xlm(), 30);
-	}
-
-	@Override
-	public double mineBitCoinPerDay() {
-		return this.btcMine.generateCoinsPerDay();
-	}
-
-	@Override
-	public double mineEtheriumPerDay() {
-		return this.ethMine.generateCoinsPerDay();
-	}
-
-	@Override
-	public double mineXlmPerDay() {
-		return this.xmlMine.generateCoinsPerDay();
 	}
 
 }

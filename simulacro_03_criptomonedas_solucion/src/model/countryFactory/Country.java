@@ -1,11 +1,16 @@
-package model;
+package model.countryFactory;
 
-public class Country {
+import model.mineStrategy.Mine;
+
+public abstract class Country implements MineCountry {
 	private String name;
 	private double priceKwHour;
 
+	protected Mine btcMine;
+	protected Mine ethMine;
+	protected Mine xmlMine;
+
 	public Country(String name, double priceKwHour) {
-		super();
 		this.name = name;
 		this.priceKwHour = priceKwHour;
 	}
@@ -26,4 +31,18 @@ public class Country {
 		this.priceKwHour = priceKwHour;
 	}
 
+	@Override
+	public double mineBitCoinPerDay() {
+		return this.btcMine.generateCoinsPerDay();
+	}
+
+	@Override
+	public double mineEtheriumPerDay() {
+		return this.ethMine.generateCoinsPerDay();
+	}
+
+	@Override
+	public double mineXlmPerDay() {
+		return this.xmlMine.generateCoinsPerDay();
+	}
 }
