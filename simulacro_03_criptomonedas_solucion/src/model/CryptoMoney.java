@@ -2,12 +2,13 @@ package model;
 
 public class CryptoMoney {
 	private String name;
-	private Double value;
+	private double value;
+	private double created;
 
 	public CryptoMoney(String name, Double value) {
-		super();
 		this.name = name;
 		this.value = value;
+		this.created = 0;
 	}
 
 	public String getName() {
@@ -25,4 +26,13 @@ public class CryptoMoney {
 	public void setValue(Double value) {
 		this.value = value;
 	}
+
+	public void mine(double created) {
+		this.created += created;
+	}
+
+	public double getCreated() {
+		return created;
+	}
+	
 }

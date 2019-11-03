@@ -1,7 +1,13 @@
 package main;
 
-import model.Country;
 import model.CryptoMoney;
+import model.countryFactory.China;
+import model.countryFactory.Country;
+import model.countryFactory.Spain;
+import model.countryFactory.Venezuela;
+import model.cryptoMoney.Btc;
+import model.cryptoMoney.Eth;
+import model.cryptoMoney.Xlm;
 
 /**
  * Simplifica el código para poder añadir en el futuro más criptomonedas y
@@ -9,43 +15,44 @@ import model.CryptoMoney;
  */
 public class Main {
 
-	private static CryptoMoney btc;
-	private static CryptoMoney eth;
-	private static CryptoMoney xlm;
 	private static Country spain;
-	private static Country chinese;
+	private static Country china;
 	private static Country venezuela;
 
 	public static void main(String[] args) {
-		btc = new CryptoMoney("Bitcoin", 8734.11);
-		eth = new CryptoMoney("Ethereum", 167.65);
-		xlm = new CryptoMoney("Stellar Lumens", 0.0585);
 
-		spain = new Country("España", 12.17);
-		chinese = new Country("China", 4);
-		venezuela = new Country("Venezuela", 0.016);
+		spain = new Spain();
+		china = new China();
+		venezuela = new Venezuela();
 
-		mine(btc);
-		mine(eth);
-		mine(xlm);
+		mine(new Btc());
+		mine(new Eth());
+		mine(new Xlm());
 	}
 
 	private static void mine(CryptoMoney money) {
 		System.out.println("***********************************************");
 		System.out.println("La criptomoneda " + money.getName() + " vale "
 				+ money.getValue() + " €");
-		double generateSpainDay = generateCoinsPerHour(money, spain);
+		double generateSpainDay = generateCoinsPerday(spain, money);
 		System.out.println("En un día España genera " + generateSpainDay
 				+ " de " + money.getName());
-		double generateChineseDay = generateCoinsPerHour(money, chinese);
+		double generateChineseDay = generateCoinsPerday(china, money);
 		System.out.println("En un día China genera " + generateChineseDay
 				+ " de " + money.getName());
-		double generateVenezuelaDay = generateCoinsPerHour(money, venezuela);
+		double generateVenezuelaDay = generateCoinsPerday(venezuela, money);
 		System.out.println("En un día Venezuela genera " + generateVenezuelaDay
 				+ " de " + money.getName());
 
+		calculateBenefits(money, generateSpainDay, generateChineseDay,
+				generateVenezuelaDay);
+	}
+
+	private static void calculateBenefits(CryptoMoney money,
+			double generateSpainDay, double generateChineseDay,
+			double generateVenezuelaDay) {
 		double costSpain = generateSpainDay * spain.getPriceKwHour();
-		double costChinese = generateChineseDay * chinese.getPriceKwHour();
+		double costChinese = generateChineseDay * china.getPriceKwHour();
 		double costVenezuela = generateVenezuelaDay
 				* venezuela.getPriceKwHour();
 
@@ -64,7 +71,7 @@ public class Main {
 					+ benefitsSpain + " € al dia");
 		} else if (benefitsChinese > benefitsSpain
 				&& benefitsChinese > benefitsVenezuela) {
-			System.out.println(chinese.getName() + " con un beneficio de "
+			System.out.println(china.getName() + " con un beneficio de "
 					+ benefitsChinese + " € al dia");
 		} else if (benefitsVenezuela > benefitsChinese
 				&& benefitsVenezuela > benefitsSpain) {
@@ -75,35 +82,18 @@ public class Main {
 		}
 	}
 
-	private static double generateCoinsPerHour(CryptoMoney cryptoMoney,
-			Country country) {
-		double crypo = 0;
-		switch (country.getName()) {
-		case "España":
-			crypo = generateCoinsPerHour(cryptoMoney, 20, 2, 30);
-			break;
-		case "China":
-			crypo = generateCoinsPerHour(cryptoMoney, 10, 200, 300);
-			break;
-		case "Venezuela":
-			crypo = generateCoinsPerHour(cryptoMoney, 5, 20, 30);
-			break;
-		}
-		return crypo * 24;
-	}
-
-	private static double generateCoinsPerHour(CryptoMoney btcMoney,
-			double... values) {
+	private static double generateCoinsPerday(Country country,
+			CryptoMoney cryptoMoney) {
 		double numCrypto = 0;
-		switch (btcMoney.getName()) {
+		switch (cryptoMoney.getName()) {
 		case "Bitcoin":
-			numCrypto = values[0];
+			numCrypto = country.mineBitCoinPerDay();
 			break;
 		case "Ethereum":
-			numCrypto = values[1];
+			numCrypto = country.mineEtheriumPerDay();
 			break;
 		case "Stellar Lumens":
-			numCrypto = values[2];
+			numCrypto = country.mineXlmPerDay();
 			break;
 		}
 		return numCrypto;
