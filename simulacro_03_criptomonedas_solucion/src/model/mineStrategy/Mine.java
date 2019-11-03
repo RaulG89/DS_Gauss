@@ -1,22 +1,13 @@
 package model.mineStrategy;
 
-import model.CryptoMoney;
-
 public class Mine {
-	private CryptoMoney cryptoMoney;
-	private double valueGenerate;
+	private double valueGeneratePerHour;
 
-	public Mine(CryptoMoney cryptoMoney, double valueGenerate) {
-		this.cryptoMoney = cryptoMoney;
-		this.valueGenerate = valueGenerate;
-	}
-
-	public double generateCoinsPerHour() {
-		cryptoMoney.mine(valueGenerate);
-		return valueGenerate;
+	public Mine(double valueGenerate) {
+		this.valueGeneratePerHour = valueGenerate;
 	}
 
 	public double generateCoinsPerDay() {
-		return generateCoinsPerHour() * 24;
+		return valueGeneratePerHour * 24;
 	}
 }

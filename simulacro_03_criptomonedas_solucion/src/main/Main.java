@@ -5,9 +5,6 @@ import model.countryFactory.China;
 import model.countryFactory.Country;
 import model.countryFactory.Spain;
 import model.countryFactory.Venezuela;
-import model.cryptoMoney.Btc;
-import model.cryptoMoney.Eth;
-import model.cryptoMoney.Xlm;
 
 /**
  * Simplifica el código para poder añadir en el futuro más criptomonedas y
@@ -25,9 +22,9 @@ public class Main {
 		china = new China();
 		venezuela = new Venezuela();
 
-		mine(new Btc());
-		mine(new Eth());
-		mine(new Xlm());
+		mine(new CryptoMoney("Bitcoin", 8734.11));
+		mine(new CryptoMoney("Ethereum", 167.65));
+		mine(new CryptoMoney("Stellar Lumens", 0.0585));
 	}
 
 	private static void mine(CryptoMoney money) {
