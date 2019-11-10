@@ -1,6 +1,6 @@
 package gauss.simulacro.tiempo.model;
 
-import com.sun.xml.internal.txw2.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
 public class Wind {
 	private Speed speed;
@@ -26,6 +26,6 @@ public class Wind {
 
 	@Override
 	public String toString() {
-		return "\n\tWind [speed=" + speed + ", direction=" + direction + "]";
+		return "\n\tWind [" + speed + ", " + direction + "]";
 	}
 }

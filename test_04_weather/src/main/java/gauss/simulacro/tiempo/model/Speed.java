@@ -36,8 +36,8 @@ public class Speed {
 
 	@Override
 	public String toString() {
-		return "\n\tSpeed [value=" + value + ", unit=" + unit + ", name=" + name
-				+ "]";
+		return "\n\t\tSpeed [value=" + value + ", unit=" + unit + ", name="
+				+ name + "]";
 	}
 
 }

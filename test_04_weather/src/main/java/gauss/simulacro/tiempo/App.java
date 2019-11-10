@@ -24,26 +24,52 @@ import gauss.simulacro.tiempo.model.Current;
  *  2. Permitir que pida los datos en los siguientes formatos: xml, json o html
  *     (Se escribirian en minusculas)
  *  3. Permitir seleccionar distintos tipos de unidades: 
- *     	Para temperatura en Fahrenheit usar imperial
- *     	Para temperatura en Celsius usar metric
+ *     	Para temperatura en Fahrenheit -> imperial
+ *     	Para temperatura en Celsius -> metric
  *     	Para temperatura en Kelvin el la poción por defecto, en este caso no
  *      indiqueis parámetro
  *  4. Permitir seleccionar distintos lenguajes, las opciones permitidas son:
- *     	Arabic - ar, Bulgarian - bg, Catalan - ca, Czech - cz, German - de, 
- *     	Greek - el, English - en, Persian (Farsi) - fa, Finnish - fi, 
- *     	French - fr, Galician - gl, Croatian - hr, Hungarian - hu, Italian - it, 
- *     	Japanese - ja, Korean - kr, Latvian - la, Lithuanian - lt, 
- *     	Macedonian - mk, Dutch - nl, Polish - pl, 
- *     	Portuguese - pt, Romanian - ro, Russian - ru, Swedish - se, 
- *     	Slovak - sk, Slovenian - sl, Spanish - es, Turkish - tr, Ukrainian - ua,
- *     	Vietnamese - vi, Chinese Simplified - zh_cn, 
- *     	Chinese Traditional - zh_tw.
+ *     	- Arabic - ar 
+ *      - Bulgarian - bg
+ *      - Catalan - ca
+ *      - Czech - cz
+ *      - German - de
+ *      - Greek - el
+ *      - English - en
+ *      - Persian (Farsi) - fa
+ *      - Finnish - fi
+ *     	- French - fr
+ *      - Galician - gl
+ *      - Croatian - hr
+ *      - Hungarian - hu
+ *      - Italian - it, 
+ *     	- Japanese - ja
+ *      - Korean - kr
+ *      - Latvian - la
+ *      - Lithuanian - lt 
+ *     	- Macedonian - mk
+ *      - Dutch - nl
+ *      - Polish - pl 
+ *     	- Portuguese - pt
+ *      - Romanian - ro
+ *      - Russian - ru
+ *      - Swedish - se 
+ *     	- Slovak - sk
+ *      - Slovenian - sl
+ *      - Spanish - es
+ *      - Turkish - tr
+ *      - Ukrainian - ua
+ *     	- Vietnamese - vi
+ *      - Chinese Simplified - zh_cn, 
+ *     	- Chinese Traditional - zh_tw
  *  5. Menos la opción de la ciudad, el resto se puede hacer combinatoria con
  *   ellas como se quiera
  */
 public class App {
 
-	private static String FILE = "files/data.xml";
+	private final static String FILE = "files/";
+	private final static String CITY = "Gijon";
+	private final static String EXTENSION = "xml";
 
 	public static void main(String[] args) throws IOException, JAXBException {
 //		BufferedReader input = new BufferedReader(
@@ -51,19 +77,21 @@ public class App {
 		URL url = configUrl();
 		String content = loadData(url);
 		saveData(content);
-		Current data = loadXml();
-		System.out.println(data);
+		if (EXTENSION == "xml") {
+			Current data = loadXml();
+			System.out.println(data);
+		}
+		System.out.println(content);
 	}
 
 	private static URL configUrl() throws IOException {
 		String direction = "https://api.openweathermap.org/data/2.5/weather?";
-		direction += "q=Oviedo";
-		direction += "&mode=xml";
+		direction += "q=" + CITY;
+		direction += "&mode=" + EXTENSION;
 		direction += "&units=metric";
 		direction += "&lang=es";
 		direction += "&APPID=76f930f74c5541522f0143430bceb0ca";
-		URL url = new URL(direction);
-		return url;
+		return new URL(direction);
 	}
 
 	private static String loadData(URL url)
@@ -87,7 +115,8 @@ public class App {
 
 	public static void saveData(String datos) {
 		try {
-			BufferedWriter fichero = new BufferedWriter(new FileWriter(FILE));
+			BufferedWriter fichero = new BufferedWriter(
+					new FileWriter(FILE + CITY + "." + EXTENSION));
 			String[] linea = datos.split("\n");
 			for (int i = 0; i < linea.length; i++)
 				fichero.write(linea[i] + "\r\n");
@@ -100,7 +129,7 @@ public class App {
 	}
 
 	private static Current loadXml() throws JAXBException {
-		File file = new File(FILE);
+		File file = new File(FILE + CITY + "." + EXTENSION);
 		JAXBContext jaxbContext = JAXBContext.newInstance(Current.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		return (Current) jaxbUnmarshaller.unmarshal(file);

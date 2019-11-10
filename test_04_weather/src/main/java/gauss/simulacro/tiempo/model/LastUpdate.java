@@ -33,6 +33,5 @@ public class LastUpdate {
 	public String toString() {
 		return "\n\tLastUpdate [value=" + value + "]";
 	}
-	
-	
+
 }

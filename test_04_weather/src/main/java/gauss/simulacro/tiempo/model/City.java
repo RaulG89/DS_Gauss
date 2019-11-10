@@ -1,8 +1,6 @@
 package gauss.simulacro.tiempo.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-
-import com.sun.xml.internal.txw2.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 
 public class City {
 	private Long id;
@@ -73,6 +71,4 @@ public class City {
 				+ sun + "]";
 	}
 
-	
-	
 }

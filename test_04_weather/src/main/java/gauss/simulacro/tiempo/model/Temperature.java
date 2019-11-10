@@ -46,8 +46,8 @@ public class Temperature {
 
 	@Override
 	public String toString() {
-		return "\n\tTemperature [value=" + value + ", min=" + min + ", max=" + max
-				+ ", unit=" + unit + "]";
+		return "\n\tTemperature [value=" + value + ", min=" + min + ", max="
+				+ max + ", unit=" + unit + "]";
 	}
 
 }

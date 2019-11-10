@@ -36,7 +36,7 @@ public class Direction {
 
 	@Override
 	public String toString() {
-		return "\n\tDirection [value=" + value + ", code=" + code + ", name="
+		return "\n\t\tDirection [value=" + value + ", code=" + code + ", name="
 				+ name + "]";
 	}
 
