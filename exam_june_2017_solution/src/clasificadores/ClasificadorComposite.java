@@ -11,9 +11,6 @@ public class ClasificadorComposite implements ClasificadorStrategy {
 
 	public ClasificadorComposite() {
 		list = new ArrayList<>();
-		list.add(new ClasificarNoMismo());
-		list.add(new ClasificadorEdad());
-		list.add(new ClasificadorSexo());
 	}
 
 	@Override
@@ -24,6 +21,10 @@ public class ClasificadorComposite implements ClasificadorStrategy {
 			}
 		}
 		return true;
+	}
+
+	public void add(ClasificadorStrategy strategy) {
+		list.add(strategy);
 	}
 
 }

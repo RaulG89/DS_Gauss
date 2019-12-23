@@ -3,7 +3,11 @@ package ligafutbol;
 import java.util.*;
 
 import clasificadores.ClasificadorComposite;
+import clasificadores.ClasificadorContiene;
+import clasificadores.ClasificadorEdad;
+import clasificadores.ClasificadorSexo;
 import clasificadores.ClasificadorStrategy;
+import clasificadores.ClasificarNoMismo;
 
 // Devuelve una tabla hash en la que cada equipo (clave) tiene asociada
 // una lista de equipos (valor) con los que tiene que jugar
@@ -21,9 +25,8 @@ public class GeneradorEmparejamientos {
 		// los que tiene que jugar 'equipo_N'
 		for (Equipo equipo : equipos) {
 			for (Equipo candidato : equipos) {
-				if (emparejamientos.get(equipo).contains(candidato)) {
-					continue;
-				} else if (getClasificador().clasificar(equipo, candidato)) {
+				if (getClasificador(emparejamientos).clasificar(equipo,
+						candidato)) {
 					emparejamientos.get(equipo).add(candidato);
 					emparejamientos.get(candidato).add(equipo);
 				}
@@ -33,8 +36,14 @@ public class GeneradorEmparejamientos {
 		return emparejamientos;
 	}
 
-	private ClasificadorStrategy getClasificador() {
-		return new ClasificadorComposite();
+	private ClasificadorStrategy getClasificador(
+			Map<Equipo, List<Equipo>> emparejamientos) {
+		ClasificadorComposite composite = new ClasificadorComposite();
+		composite.add(new ClasificarNoMismo());
+		composite.add(new ClasificadorEdad());
+		composite.add(new ClasificadorSexo());
+		composite.add(new ClasificadorContiene(emparejamientos));
+		return composite;
 	}
 
 }
